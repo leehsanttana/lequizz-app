@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import * as C from './StyleApp';
+import Footer from './Components/Footer';
+import HomeSection from './Components/HomeSection';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { GlobalContext } from './Context/UserContext';
+import Questions from './Components/Questions/';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalContext>
+      <C.App>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/" element={<HomeSection />} />
+            <Route path="/questions/*" element={<Questions />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </C.App>
+    </GlobalContext>
   );
 }
 
