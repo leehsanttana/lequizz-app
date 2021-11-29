@@ -13,10 +13,6 @@ export const Button = styled.button`
   cursor: pointer;
   transition: 0.3s ease;
 
-  @media (max-width: 590px) {
-    width: 100%;
-  }
-
   &:hover {
     outline: none;
     box-shadow: 0 0 0 3px var(--white-light-blue), 0 0 0 4px var(--light-blue);
@@ -29,5 +25,15 @@ export const Button = styled.button`
   &:disabled {
     opacity: 0.5;
     cursor: wait;
+  }
+
+  @media (max-width: 590px) {
+    width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    &:hover {
+      transform: scale(1.02);
+    }
   }
 `;

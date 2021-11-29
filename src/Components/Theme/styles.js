@@ -14,4 +14,8 @@ export const Theme = styled.section`
     padding: 1.2rem;
     margin: auto 2rem;
   }
+
+  @media (max-width: 480px) {
+    margin: 0 1rem;
+  }
 `;
