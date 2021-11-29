@@ -28,8 +28,6 @@ const HomeSection = () => {
       navigate('/questions');
     } catch (err) {
       setError(err.message);
-    } finally {
-      setLoading(false);
     }
   }
 
@@ -50,6 +48,7 @@ const HomeSection = () => {
               value={name}
               setValue={setName}
               setError={setError}
+              tabIndex="1"
             />
             {error && <p className="error">{error}</p>}
             <Radio
@@ -57,13 +56,14 @@ const HomeSection = () => {
               options={['easy', 'hard']}
               value={difficulty}
               setValue={setDifficulty}
+              tabIndex="2"
             />
           </div>
 
           {loading ? (
             <Button disabled>Carregando...</Button>
           ) : (
-            <Button>Começar</Button>
+            <Button tabIndex="3">Começar</Button>
           )}
         </form>
       </C.HomeSection>

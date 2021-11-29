@@ -10,6 +10,7 @@ const Question = ({ question, active, answers, id, value, onChange }) => {
         if (answers[answer] !== null) {
           return (
             <label key={answer}>
+              {i + 1} - {''}
               <input
                 type="radio"
                 id={id}

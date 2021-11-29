@@ -13,8 +13,6 @@ const Questions = () => {
   const [answers, setAnswers] = useState({});
   const [isChecked, setIsChecked] = useState(false);
 
-  console.log(answers);
-
   function handleChange({ target }) {
     setAnswers({ ...answers, [target.id]: target.value });
     setIsChecked(true);

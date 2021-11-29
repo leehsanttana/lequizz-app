@@ -33,4 +33,18 @@ export const App = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    label {
+      font-size: 1rem;
+    }
+  }
 `;
