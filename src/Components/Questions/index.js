@@ -10,35 +10,34 @@ const Questions = () => {
   const { name, difficulty, questions, result, setResult, slide, setSlide } =
     useContext(UserContext);
 
-  const [answers, setAnswers] = useState({
-    a1: '',
-    a2: '',
-    a3: '',
-    a4: '',
-    a5: '',
-    a6: '',
-    a7: '',
-    a8: '',
-    a9: '',
-    a10: '',
-  });
+  const [answers, setAnswers] = useState({});
+  const [isChecked, setIsChecked] = useState(false);
+
+  console.log(answers);
 
   function handleChange({ target }) {
     setAnswers({ ...answers, [target.id]: target.value });
+    setIsChecked(true);
   }
 
   function finalResult() {
     const correctAnswers = questions.filter(
       ({ id, correct_answer }) => answers[id] === correct_answer,
     );
-    setResult(correctAnswers.length);
+    if (correctAnswers.length === 0) {
+      setResult('0');
+    } else {
+      setResult(correctAnswers.length);
+    }
   }
 
   function nextSlide(event) {
     event.preventDefault();
     if (slide < questions.length - 1) {
+      setIsChecked(false);
       setSlide(slide + 1);
     } else {
+      setIsChecked(false);
       setSlide(slide + 1);
       finalResult();
     }
@@ -80,7 +79,11 @@ const Questions = () => {
           {result ? (
             <Result />
           ) : (
-            <Button>
+            <Button
+              disabled={isChecked ? false : true}
+              className="next-button"
+              style={{ cursor: isChecked ? 'pointer' : 'not-allowed' }}
+            >
               {slide === questions.length - 1 ? 'Finalizar' : 'Avançar'}{' '}
             </Button>
           )}

@@ -14,4 +14,8 @@ export const Result = styled.section`
       margin: 0 1rem;
     }
   }
+
+  button {
+    width: 250px !important;
+  }
 `;

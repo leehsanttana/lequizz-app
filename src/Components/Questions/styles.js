@@ -31,7 +31,7 @@ export const Questions = styled.section`
     display: grid;
     height: 100%;
 
-    button {
+    .next-button {
       width: 120px;
       padding: 1rem;
       justify-self: end;
